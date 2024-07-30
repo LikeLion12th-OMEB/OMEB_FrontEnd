@@ -8,7 +8,7 @@ const Review = () => {
   const [newReview, setNewReview] = useState("");
   const [tag, setTag] = useState("");
   const [editingReview, setEditingReview] = useState(null);
-  const [showInput, setShowInput] = useState(true); 
+  const [showInput, setShowInput] = useState(true);
   const { bookId } = useParams();
 
   useEffect(() => {
@@ -39,13 +39,13 @@ const Review = () => {
 
   const handleCreate = async () => {
     if (!tag) {
-      alert("태그를 선택해 주세요."); 
+      alert("태그를 선택해 주세요.");
       return;
     }
 
     await axios.post(
       `${import.meta.env.VITE_TEST_URL}/api/v1/review/${bookId}`,
-      { content: newReview, tag } 
+      { content: newReview, tag }
     );
     setNewReview("");
     setTag("");
@@ -109,15 +109,18 @@ const Review = () => {
             </div>
           ))}
       </div>
-      {showInput && ( 
+      {showInput && (
         <div className="review-input">
-          <select value={tag} onChange={(e) => setTag(e.target.value)}>
-            {tagOptions.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
+          <div className="select">
+            <p>#감정태그</p>
+            <select value={tag} onChange={(e) => setTag(e.target.value)}>
+              {tagOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </div>
           <textarea
             value={newReview}
             onChange={(e) => setNewReview(e.target.value)}

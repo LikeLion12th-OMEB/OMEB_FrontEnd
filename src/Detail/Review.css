@@ -28,6 +28,23 @@
   padding: 10px 0;
 }
 
+.review-input select {
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 15px;
+}
+
+.review-input .select {
+  display: flex;
+  flex-direction: column;
+}
+.review-input .select p {
+  font-size: 15px;
+  margin-left: 30px;
+  margin-top: -20px;
+  margin-bottom: 8px;
+}
+
 .review-input {
   align-items: center;
   justify-content: center;
